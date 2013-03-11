@@ -1,0 +1,14 @@
+= form_tag('', method: 'post', class: 'form-horizontal') do
+  .control-group
+    = label_tag(:netid, 'NetID', class: 'control-label')
+    .controls
+      = text_field_tag(:netid)
+
+  .control-group
+    = label_tag(:password, 'Password', class: 'control-label')
+    .controls
+      = password_field_tag(:password)
+
+  .control-group
+    .controls
+      = submit_tag("Submit", class: 'btn')
