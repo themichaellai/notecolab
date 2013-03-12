@@ -49,6 +49,17 @@ class StudentInfo
           course_info["\n"]= " "
           courses << course_info
         end
+
+        # seperate course name and course section
+        courses.map! do |course|
+          info = {}
+          course.scan(/([a-zA-Z]+ \d+[a-zA-Z]*)-(\d*[a-zA-Z]?)/) do |number, section|
+            info[:number] = number 
+            info[:section] = section
+          end
+          info
+        end
+
         result['schedule'] = courses
       end
       return result.to_json
@@ -63,7 +74,7 @@ end
 if __FILE__ == $0
   print 'Username? '
   username = gets.chomp
-  print 'Passowrd? '
+  print 'Password? '
   system 'stty -echo'
   password = gets.chomp
   system 'stty echo'
