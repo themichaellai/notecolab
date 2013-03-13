@@ -54,15 +54,15 @@ class StudentInfo
         courses.map! do |course|
           info = {}
           course.scan(/([a-zA-Z]+ \d+[a-zA-Z]*)-(\d*[a-zA-Z]?)/) do |number, section|
-            info[:number] = number 
+            info[:number] = number
             info[:section] = section
           end
           info
         end
 
-        result['schedule'] = courses
+        result[:schedule] = courses
       end
-      return result.to_json
+      return result
     end
   end
 

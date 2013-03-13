@@ -2,9 +2,12 @@ Notecolab::Application.routes.draw do
 
   devise_for :users
 
-  resources :users do
-    member do
-      match '/aces_link' => 'Users#aces_link', :via => [:get, :post]
+  resources :users
+
+  resources :courses do
+    collection do
+      get '/aces_link' => 'Courses#aces'
+      post '/aces_link' => 'Courses#aces_link'
     end
   end
 

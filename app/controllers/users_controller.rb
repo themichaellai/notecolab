@@ -3,13 +3,7 @@ class UsersController < ApplicationController
   before_filter :correct_user, only: [:aces_link]
 
   def show
-  end
-
-  def aces_link
-    if request.post?
-      flash[:success] = 'ACES Linked!'
-      redirect_to user_path current_user
-    end
+    @courses = @user.courses
   end
 
   protected
