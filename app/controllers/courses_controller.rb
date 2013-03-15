@@ -14,14 +14,14 @@ class CoursesController < ApplicationController
       flash[:error] = 'Wrong credentials/Not enrolled in any classes!'
       redirect_to aces_link_courses_path
     else
-      found = 0
+      courses_count_init = current_user.courses.count
       aces_res[:schedule].each do |course_data|
         course = Course.find_or_create_by_number(course_data[:number]) do |course|
           course.name = course_data[:number]
-          found += 1
         end
         current_user.courses << course
       end
+      found = current_user.courses.count - courses_count_init
       if found > 0
         flash[:success] = "#{pluralize(found, 'course')} in ACES linked!"
       else
