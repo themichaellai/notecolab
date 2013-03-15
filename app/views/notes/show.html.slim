@@ -1,0 +1,17 @@
+- provide(:title, @note.title)
+.row
+  .span9
+    h1 = @note.title
+    p
+      i = @note.description
+
+    p = @note.body
+
+  .span3
+    h2 Info
+    p
+      | Course: #{link_to @note.course.name, course_path(@note.course)}
+    p
+      | Created by: #{link_to @note.user.name, user_path(@note.user)}
+    p
+      | Updated #{time_ago_in_words @note.updated_at} ago

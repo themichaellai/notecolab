@@ -1,20 +1,24 @@
-- provide(:title, current_user == @user ? 'Dashboard' : @user.name)
+- provide(:title, @user.name)
 .row
   .span8
-    - if current_user == @user
-      h1 Dashboard
-      h2
-        My Classes
-        = " (#{@courses.count})" if @courses.count > 0
+    h2 Classes
+    ul
+    - @courses.each do |course|
+      li
+        = link_to course.name, course_path(course)
 
+    - if @user.notes.count > 0
+      h2 Notes Created
       ul
-      - @courses.each do |course|
+      - @user.notes.each do |note|
         li
-          = link_to course.name, course_path(course)
+          = link_to note.title, course_note_path(note.course, note)
+          |  (#{note.course.name})
   .span4
     h2
       = @user.name
     = @user.email
     br
     br
-    a href=aces_link_courses_path Link to ACES
+    - if current_user == @user
+      a href=aces_link_courses_path Link to ACES

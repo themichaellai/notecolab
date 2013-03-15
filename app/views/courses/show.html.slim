@@ -1,0 +1,15 @@
+- provide(:title, @course.name)
+.row
+  .span8
+    h1 Notes
+    ul
+      - @notes.each do |note|
+        li
+          = link_to note.title, course_note_path(@course, note)
+  .span4
+    h1
+      = @course.name
+    = link_to 'New Note', new_course_note_path(@course)
+
+    h2 Course Members
+    ul

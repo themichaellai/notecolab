@@ -4,6 +4,11 @@ class CoursesController < ApplicationController
   include ActionView::Helpers::TextHelper
   before_filter :authenticate_user!, only: [:aces, :aces_link]
 
+  def show
+    @course = Course.find(params[:id])
+    @notes = @course.notes
+  end
+
   def aces
   end
 

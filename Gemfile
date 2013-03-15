@@ -6,6 +6,7 @@ gem 'devise', '~> 2.2.3'
 gem 'mechanize', '2.5.1'
 gem 'friendly_id'
 gem 'slim-rails'
+gem 'paperclip'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
