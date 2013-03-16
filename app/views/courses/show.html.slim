@@ -10,6 +10,5 @@
     h1
       = @course.name
     = link_to 'New Note', new_course_note_path(@course)
-
-    h2 Course Members
-    ul
+    br
+    = link_to 'Course Members', course_users_path(@course)

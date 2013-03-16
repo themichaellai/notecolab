@@ -145,6 +145,7 @@ GEM
     warden (1.2.1)
       rack (>= 1.0)
     webrobots (0.1.0)
+    will_paginate (3.0.4)
 
 PLATFORMS
   ruby
@@ -162,3 +163,4 @@ DEPENDENCIES
   slim-rails
   sqlite3
   uglifier (>= 1.0.3)
+  will_paginate (~> 3.0)
