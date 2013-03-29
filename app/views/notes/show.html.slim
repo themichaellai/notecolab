@@ -15,6 +15,7 @@
       | Created by: #{link_to @note.user.name, user_path(@note.user)}
     p
       | Updated #{time_ago_in_words @note.updated_at} ago
+    p = link_to 'Edit', edit_course_note_path(@note.course, @note)
 
     - if @note.attachments.present?
       h3 Attachments
