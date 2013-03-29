@@ -11,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130314230157) do
+ActiveRecord::Schema.define(:version => 20130318192714) do
+
+  create_table "attachments", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "note_id"
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
+    t.string   "attached_file_file_name"
+    t.string   "attached_file_content_type"
+    t.integer  "attached_file_file_size"
+    t.datetime "attached_file_updated_at"
+  end
 
   create_table "courses", :force => true do |t|
     t.string   "name"

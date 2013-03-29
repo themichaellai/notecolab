@@ -22,5 +22,10 @@ hr
     .controls
       = f.text_area :body, class: 'input-xxlarge'
   .control-group
+  = f.fields_for :attachments do |attachment|
+      .controls
+        = attachment.file_field :attached_file
+
+  .control-group
     .controls
       = f.submit 'Create', class: 'btn'

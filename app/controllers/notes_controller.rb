@@ -4,6 +4,7 @@ class NotesController < ApplicationController
   def new
     @course = Course.find params[:course_id]
     @note = Note.new
+    5.times { @note.attachments.build }
   end
 
   def create

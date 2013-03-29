@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
 
   has_and_belongs_to_many :courses, uniq: true
   has_many :notes
+  has_many :attachments
 
   self.per_page = 30
 
