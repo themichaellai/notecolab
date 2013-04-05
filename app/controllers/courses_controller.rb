@@ -22,7 +22,8 @@ class CoursesController < ApplicationController
       courses_count_init = current_user.courses.count
       aces_res[:schedule].each do |course_data|
         course = Course.find_or_create_by_number(course_data[:number]) do |course|
-          course.name = course_data[:number]
+          course.name = course_data[:name]
+          course.number = course_data[:number]
         end
         current_user.courses << course
       end

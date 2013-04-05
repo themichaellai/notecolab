@@ -44,22 +44,19 @@ class StudentInfo
       a.get('https://www.siss.duke.edu/psp/CSPRD01/EMPLOYEE/HRMS/h/?cmd=getCachedPglt&pageletname=HC_STUDENT_CENTER_HOME&tab=DEFAULT&PORTALPARAM_COMPWIDTH=Narrow&ptlayout=N') do |page|
 
         courses = Array.new()
-        page.search('span[@class="PSHYPERLINKDISABLED"][@title="View Details"]').each do |link|
-          course_info = link.content
-          course_info["\n"]= " "
-          courses << course_info
-        end
-
-        # seperate course name and course section
-        courses.map! do |course|
+        page.search('table[@id="STDNT_WEEK_SCHD$scroll$0"]/tr[@id]').each do |row|
           info = {}
-          course.scan(/([a-zA-Z]+ \d+[a-zA-Z]*)-(\d*[a-zA-Z]?)/) do |number, section|
-            info[:number] = number
-            info[:section] = section
+          row.search('span[@class="PSHYPERLINKDISABLED"][@title="View Details"]').each do |num|
+            num.content.scan(/([a-zA-Z]+ \d+[a-zA-Z]*)-(\d*[a-zA-Z]?)/) do |number, section|
+              info[:number] = number
+              info[:section] = section
+            end
           end
-          info
+          row.search('span[class="PSEDITBOX_DISPONLY"]').each do |desc|
+            info[:name] = desc.content
+          end
+          courses << info
         end
-
         result[:schedule] = courses
       end
       return result
