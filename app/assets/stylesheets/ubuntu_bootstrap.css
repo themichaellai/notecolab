@@ -1352,9 +1352,8 @@ textarea,
 }
 div.span12 > ul > li {
   list-style-type:none;
-  background-image:url('user.png');
   background-repeat:no-repeat;
-  background-position:0px -4px; 
+  background-position:0px -4px;
   padding-left:40px;
   line-height:30px;
   font-size:15px;
