@@ -1,6 +1,6 @@
 - provide(:title, @user.name)
 .row
-  .span7
+  .span8
     h2.inline Classes
     ul
       - @courses.each do |course|
@@ -19,7 +19,7 @@
 
 
 
-  .span5.sidebar
+  .span4.sidebar
     h2.inline
       = @user.name
     = gravatar_for @user
