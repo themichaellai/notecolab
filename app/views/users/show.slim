@@ -2,7 +2,6 @@
 .row
   .span7
     h2.inline Classes
-    span.inline-link= link_to 'All Classes', courses_path
     ul
       - @courses.each do |course|
         li
@@ -31,4 +30,6 @@
     - if @correct_user
       hr
       h3 Links
-      a href=aces_link_courses_path Link to ACES
+      ul.nav.nav-pills.nav-stacked.links
+        li= link_to 'All Classes', courses_path
+        li= link_to 'Link to Aces', aces_link_courses_path
