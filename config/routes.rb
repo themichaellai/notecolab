@@ -11,6 +11,7 @@ Notecolab::Application.routes.draw do
       post '/aces_link' => 'Courses#aces_link'
     end
     resources :users, only: [:index], controller: 'courses/users'
+    post '/join' => 'Courses#join'
   end
 
   root to: 'StaticPages#home'

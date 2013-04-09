@@ -10,5 +10,7 @@ table
       td= link_to course.name, course_path(course)
       td= link_to course.number, course_path(course)
       td= link_to course.users.count, course_users_path(course)
+      - if user_signed_in?
+        td= link_to 'Join', course_join_path(course), class: 'join'
 
 = will_paginate @courses

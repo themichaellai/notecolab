@@ -2,7 +2,7 @@ require 'student_info'
 
 class CoursesController < ApplicationController
   include ActionView::Helpers::TextHelper
-  before_filter :authenticate_user!, only: [:aces, :aces_link]
+  before_filter :authenticate_user!, only: [:aces, :aces_link, :join]
 
   def index
     @courses = Course.paginate page: params[:page], per_page: 20
@@ -40,4 +40,15 @@ class CoursesController < ApplicationController
       redirect_to user_path(current_user)
     end
   end
+
+  def join
+    course = Course.find params[:course_id]
+    unless current_user.courses.include? course
+      current_user.courses << course
+      render text: 'Success!'
+    else
+      render text: 'Already Enrolled!'
+    end
+  end
+
 end
