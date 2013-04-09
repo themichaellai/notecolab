@@ -229,12 +229,10 @@ body {
   font-size: 14px;
   line-height: 20px;
   color: #4F1907;
-  background-color: #EDBF8A;
 }
 
 a {
   color: #ffffff;
-  text-decoration: underline;
 }
 a.btn{
   text-decoration: none;
