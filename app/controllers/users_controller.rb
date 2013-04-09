@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
   before_filter :find_user
-  before_filter :correct_user, only: [:aces_link]
 
   def show
+    @correct_user = correct_user?
     @courses = @user.courses
   end
 
@@ -11,11 +11,8 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
     end
 
-    def correct_user
-      unless current_user == @user
-        flash[:alert] = "You're not the right user!"
-        redirect_to root_path
-      end
+    def correct_user?
+      current_user == @user
     end
 
 end

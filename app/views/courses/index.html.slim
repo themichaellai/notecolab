@@ -1,0 +1,14 @@
+h1 All Courses
+
+table
+  thead
+    td Name
+    td Number
+    td Enrolled
+  - @courses.each do |course|
+    tr
+      td= link_to course.name, course_path(course)
+      td= link_to course.number, course_path(course)
+      td= link_to course.users.count, course_users_path(course)
+
+= will_paginate @courses

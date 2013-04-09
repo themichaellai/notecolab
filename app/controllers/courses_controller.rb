@@ -4,6 +4,10 @@ class CoursesController < ApplicationController
   include ActionView::Helpers::TextHelper
   before_filter :authenticate_user!, only: [:aces, :aces_link]
 
+  def index
+    @courses = Course.paginate page: params[:page], per_page: 20
+  end
+
   def show
     @course = Course.find(params[:id])
     @notes = @course.notes
