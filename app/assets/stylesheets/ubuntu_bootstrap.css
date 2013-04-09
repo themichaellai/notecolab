@@ -1038,7 +1038,9 @@ pre code {
 form {
   margin: 0 0 20px;
 }
-
+div.form-title > a{
+  color:#9F330E;
+}
 fieldset {
   padding: 0;
   margin: 0;
@@ -3945,7 +3947,7 @@ input[type="submit"].btn.btn-mini {
 }
 
 .alert-danger,
-.alert-error {
+.alert-error{
   color: #ffffff;
   background-color: #DA1313;
   border-color: #f8d0d4;
@@ -3957,9 +3959,9 @@ input[type="submit"].btn.btn-mini {
 }
 
 .alert-info {
-  color: #772953;
-  background-color: #e7b8d1;
-  border-color: #de9ecb;
+  color: #ffffff;
+  background-color: #199C37;
+  border-color: #199C37;
 }
 
 .alert-info h4 {
