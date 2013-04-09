@@ -9,6 +9,6 @@
   .span4
     h1
       = @course.name
-    = link_to 'New Note', new_course_note_path(@course)
-    br
-    = link_to 'Course Members', course_users_path(@course)
+    ul.nav.nav-pills.nav-stacked
+      li= link_to 'New Note', new_course_note_path(@course)
+      li= link_to 'Course Members', course_users_path(@course)
