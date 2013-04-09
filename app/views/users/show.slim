@@ -20,8 +20,10 @@
 
 
   .span4.sidebar
-    h2
+    h2.inline
       = @user.name
+    = gravatar_for @user
+    br
     = @user.email
     br
     br
