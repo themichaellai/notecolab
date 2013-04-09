@@ -1,3 +1,4 @@
+require 'rdiscount'
 class Note < ActiveRecord::Base
   attr_accessible :body, :description, :title, :attachments_attributes
   belongs_to :course
@@ -8,4 +9,8 @@ class Note < ActiveRecord::Base
   validates :user_id, presence: true
   validates :course_id, presence: true
   validates :title, presence: true
+
+  def render_body
+    RDiscount.new(body).to_html
+  end
 end

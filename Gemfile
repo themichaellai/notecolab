@@ -8,6 +8,7 @@ gem 'friendly_id'
 gem 'slim-rails'
 gem 'paperclip'
 gem 'will_paginate', '~> 3.0'
+gem 'rdiscount'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
