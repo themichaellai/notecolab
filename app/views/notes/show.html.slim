@@ -19,5 +19,7 @@
 
     - if @note.attachments.present?
       h3 Attachments
-      - @note.attachments.each do |attachment|
-        = link_to attachment.attached_file_file_name, attachment.attached_file.url
+      ul.nav.nav-pills.nav-stacked.links
+        - @note.attachments.each do |attachment|
+          li
+            = link_to attachment.attached_file_file_name, attachment.attached_file.url
