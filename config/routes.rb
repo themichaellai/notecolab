@@ -12,6 +12,7 @@ Notecolab::Application.routes.draw do
     end
     resources :users, only: [:index], controller: 'courses/users'
     post '/join' => 'Courses#join'
+    post '/leave' => 'Courses#leave'
   end
 
   root to: 'StaticPages#home'

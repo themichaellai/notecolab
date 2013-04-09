@@ -2,7 +2,7 @@ require 'student_info'
 
 class CoursesController < ApplicationController
   include ActionView::Helpers::TextHelper
-  before_filter :authenticate_user!, only: [:aces, :aces_link, :join]
+  before_filter :authenticate_user!, only: [:aces, :aces_link, :join, :leave]
 
   def index
     @courses = Course.paginate page: params[:page], per_page: 20
@@ -48,6 +48,16 @@ class CoursesController < ApplicationController
       render text: 'Success!'
     else
       render text: 'Already Enrolled!'
+    end
+  end
+
+  def leave
+    course = Course.find params[:course_id]
+    if current_user.courses.include? course
+      current_user.courses.delete course
+      render json: {success: true}
+    else
+      render json: {success: false, message: 'Error'}
     end
   end
 

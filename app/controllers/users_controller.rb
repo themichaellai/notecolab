@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_filter :find_user
 
   def show
-    @correct_user = correct_user?
+    @correct_user = correct_user? @user
     @courses = @user.courses
   end
 
@@ -11,8 +11,8 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
     end
 
-    def correct_user?
-      current_user == @user
+    def correct_user?(user)
+      current_user == user
     end
 
 end

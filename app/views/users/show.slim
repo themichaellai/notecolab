@@ -2,20 +2,21 @@
 .row
   .span7
     h2.inline Classes
-    span.head-link= link_to 'All Classes', courses_path
-
+    span.inline-link= link_to 'All Classes', courses_path
     ul
-    - @courses.each do |course|
-      li
-        = link_to course.name, course_path(course)
+      - @courses.each do |course|
+        li
+          = link_to course.name, course_path(course)
+          - if @correct_user
+            span.inline-link= link_to 'Leave', course_leave_path(course), class: 'leave'
 
     - if @user.notes.count > 0
       h2 Notes Created
       ul
-      - @user.notes.each do |note|
-        li
-          = link_to note.title, course_note_path(note.course, note)
-          |  (#{note.course.name})
+        - @user.notes.each do |note|
+          li
+            = link_to note.title, course_note_path(note.course, note)
+            |  (#{note.course.name})
 
 
 
