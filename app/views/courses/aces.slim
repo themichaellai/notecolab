@@ -1,14 +1,17 @@
-= form_tag(aces_link_courses_path, method: 'post', class: 'form-horizontal') do
-  .control-group
-    = label_tag(:netid, 'NetID', class: 'control-label')
-    .controls
-      = text_field_tag(:netid)
+.row
+  .span12.aces
+    = form_tag(aces_link_courses_path, method: 'post', class: 'form-horizontal') do
+      .control-group
+        = label_tag(:netid, 'NetID', class: 'control-label')
+        .controls
+          = text_field_tag(:netid)
 
-  .control-group
-    = label_tag(:password, 'Password', class: 'control-label')
-    .controls
-      = password_field_tag(:password)
+      .control-group
+        = label_tag(:password, 'Password', class: 'control-label')
+        .controls
+          = password_field_tag(:password)
 
-  .control-group
-    .controls
-      = submit_tag("Submit", class: 'btn')
+      .control-group
+        .controls
+          = submit_tag("Submit", class: 'btn')
+          = link_to 'Later', user_path(current_user), class: 'later'
