@@ -8,7 +8,7 @@ module ApplicationHelper
     end
   end
 
-  def gravatar_for(user, options)
+  def gravatar_for(user, options = {})
     width = options[:width] || 80
     gravatar_id = Digest::MD5::hexdigest(user.email.downcase)
     gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}"
